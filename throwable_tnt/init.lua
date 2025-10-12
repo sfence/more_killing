@@ -85,13 +85,13 @@ core.register_entity("throwable_tnt:tnt_stick_burning", {
 
 		-- apply velocity decrease on reflection
 		for _, collision in pairs(moveresult.collisions or {}) do
-			vel[collision.axis] = vel[collision.axis] * 0.6
+			--vel[collision.axis] = vel[collision.axis] * 0.6
 		end
 
 		-- aerodynamic deceleration
 		-- calculated from aerodynamic force, based on v^2
 		local speed = vector.length(vel)
-		print("Speed: "..speed)
+		local old_speed = speed
 		if moveresult.touching_ground or moveresult.standing_on_object then
 			speed = math.max(0, speed - 10 * dtime)
 		end
@@ -101,7 +101,13 @@ core.register_entity("throwable_tnt:tnt_stick_burning", {
 		vel = vector.multiply(vel, speed)
 		self.object:set_velocity(vel)
 
-		print("Timer: "..self.timer.." Speed: "..speed)
+		if speed == 0 then
+			self.object:set_acceleration({x=0, y=-0.1, z=0})
+		else
+			self.object:set_acceleration({x=0, y=-10, z=0})
+		end
+
+		--print("Timer: "..self.timer.." Speed: "..speed.." Old speed: "..old_speed.." set speed: "..vector.length(vel))
 		--print("Timer: "..self.timer.." Speed: "..speed.." move_result: "..dump(moveresult))
 	end,
 })
