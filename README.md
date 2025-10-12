@@ -59,5 +59,5 @@ This short player-focused guide explains the in-game steps you need to arm and u
 - How to craft parts: Use a knife (cutting action) on a stick to convert one stick into one Trap Wooden Pole. Keep sticks on the hotbar line adjacent to your wielded slot so the knife action can find them.
 
 ## Found bug? Want improvements?
-If you foun bug, have improvment idea etc, use https://github.com/sfence/more_killing/issues . Author is opened to help via PR, but strongly recommend to consult improvment idea first via issue or differenc comunication platform.
+If you foun bug, have improvment idea etc, use https://github.com/sfence/more_killing/issues . Author is opened to help via PR, but strongly recommend to consult improvment idea first via issue or different comunication platform.
 
